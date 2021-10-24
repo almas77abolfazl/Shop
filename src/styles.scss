@@ -4,5 +4,22 @@
 @import "~@fortawesome/fontawesome-free/scss/regular.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
 
-
 @import "~bootstrap/scss/bootstrap";
+
+.p-megamenu
+  .p-megamenu-root-list
+  > .p-menuitem
+  > .p-menuitem-link
+  .p-submenu-icon {
+  margin-right: 0.5rem !important;
+  margin-left: unset !important;
+}
+
+.p-megamenu
+  .p-megamenu-root-list
+  > .p-menuitem
+  > .p-menuitem-link
+  .p-menuitem-icon {
+  margin-right: unset !important;
+  margin-left: 0.5rem !important;
+}

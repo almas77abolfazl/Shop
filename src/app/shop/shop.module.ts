@@ -18,6 +18,9 @@ import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { TableModule } from 'primeng/table';
 import { PanelRoutingModule } from './shop-routing.module';
+import { MegaMenuModule } from 'primeng/megamenu';
+import { CarouselModule } from 'primeng/carousel';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [COMPONENTS],
@@ -40,6 +43,9 @@ import { PanelRoutingModule } from './shop-routing.module';
     ToastModule,
     TableModule,
     PanelRoutingModule,
+    MegaMenuModule,
+    CarouselModule,
+    CardModule,
   ],
 })
 export class ShopModule {}

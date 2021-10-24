@@ -1,6 +1,11 @@
-<p-toolbar>
+<p-toolbar dir="rtl">
   <div class="p-toolbar-group-right">
-    <span>به فروشگاه من خوش آمدید :)</span>
+    <p-button
+      type="button"
+      styleClass="p-button-success p-button-rounded p-mr-2"
+      icon="pi pi-shopping-cart"
+    ></p-button>
+    <span>به فروشگاه ... خوش آمدید :)</span>
   </div>
   <div class="p-toolbar-group-left">
     <span class="p-float-label" dir="rtl">
@@ -9,3 +14,26 @@
     </span>
   </div>
 </p-toolbar>
+
+<p-megaMenu [model]="items" dir="rtl"></p-megaMenu>
+
+<app-carousel-cart
+  [headerTitle]="'کالای شگفت انگیز'"
+  [autoplayInterval]="3000"
+></app-carousel-cart>
+
+<app-carousel-cart [headerTitle]="'پر فروش ترین های هفته'"></app-carousel-cart>
+
+<app-carousel-cart [headerTitle]="'کالاهای جدید'"></app-carousel-cart>
+
+<app-carousel-cart
+  [headerTitle]="'دسته بندی کالا ها'"
+  [numberOfElements]="1"
+  [autoplayInterval]="5000"
+></app-carousel-cart>
+
+<div style="display: flex; margin: 6%">
+  <app-card></app-card>
+  <app-card></app-card>
+  <app-card></app-card>
+</div>
