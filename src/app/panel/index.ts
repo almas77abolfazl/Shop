@@ -8,3 +8,16 @@ export const COMPONENTS: Provider[] = [
   AddStuffComponent,
   StuffListComponent,
 ];
+
+export interface Stuff {
+  id?: string;
+  code?: string;
+  stuffName?: string;
+  description?: string;
+  price?: number;
+  quantity?: number;
+  inventoryStatus?: string;
+  category?: string;
+  stuffPic?: any;
+  rating?: number;
+}

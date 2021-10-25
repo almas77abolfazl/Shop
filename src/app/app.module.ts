@@ -14,8 +14,11 @@ const dbConfig: DBConfig = {
       storeConfig: { keyPath: 'id', autoIncrement: true },
       storeSchema: [
         { name: 'stuffName', keypath: 'stuffName', options: { unique: false } },
-        { name: 'inventory', keypath: 'inventory', options: { unique: false } },
-        { name: 'uploadPic', keypath: 'uploadPic', options: { unique: false } },
+        { name: 'quantity', keypath: 'quantity', options: { unique: false } },
+        { name: 'stuffPic', keypath: 'stuffPic', options: { unique: false } },
+        { name: 'price', keypath: 'price', options: { unique: false } },
+        { name: 'quantity', keypath: 'quantity', options: { unique: false } },
+        { name: 'category', keypath: 'category', options: { unique: false } },
         {
           name: 'description',
           keypath: 'description',
@@ -25,6 +28,7 @@ const dbConfig: DBConfig = {
     },
   ],
 };
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -38,3 +42,4 @@ const dbConfig: DBConfig = {
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+

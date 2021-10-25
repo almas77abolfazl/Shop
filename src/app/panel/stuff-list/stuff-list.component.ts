@@ -19,14 +19,11 @@ export class StuffListComponent implements OnInit {
     });
     this.cols = [
       { field: 'stuffName', header: 'عنوان کالا' },
-      { field: 'inventory', header: 'موجودی انبار' },
+      { field: 'quantity', header: 'موجودی انبار' },
       { field: 'description', header: 'توضیحات' },
       { field: 'stuffPic', header: 'عکس کالا' },
+      { field: 'price', header: 'قیمت' },
     ];
   }
 }
-export interface Car {
-  stuffName?: string;
-  inventory?: number;
-  description?: string;
-}
+

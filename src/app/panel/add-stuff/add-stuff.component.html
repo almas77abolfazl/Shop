@@ -32,15 +32,30 @@
       </div>
 
       <div class="p-field p-grid">
-        <label for="inventory" class="p-col-fixed" style="width: 200px"
+        <label for="quantity" class="p-col-fixed" style="width: 200px"
           >موجودی در انبار</label
         >
         <div class="p-col">
           <p-inputNumber
             mode="decimal"
-            inputId="inventory"
+            inputId="quantity"
             [useGrouping]="false"
-            [(ngModel)]="entity.inventory"
+            [(ngModel)]="entity.quantity"
+          >
+          </p-inputNumber>
+        </div>
+      </div>
+
+      <div class="p-field p-grid">
+        <label for="price" class="p-col-fixed" style="width: 200px"
+          >قیمت</label
+        >
+        <div class="p-col">
+          <p-inputNumber
+            mode="decimal"
+            inputId="price"
+            [useGrouping]="false"
+            [(ngModel)]="entity.price"
           >
           </p-inputNumber>
         </div>
@@ -62,16 +77,17 @@
       </div>
 
       <div class="p-field p-grid">
-        <label for="uploadPic" class="p-col-fixed" style="width: 200px">
+        <label for="stuffPic" class="p-col-fixed" style="width: 200px">
           آپلود عکس</label
         >
         <div class="p-col">
           <p-fileUpload
             name="myfile[]"
-            url="./upload.php"
-            [multiple]="true"
+            [multiple]="false"
             accept="image/*"
             [auto]="true"
+            (onSelect)="onSelect($event)"
+            (onRemove)="onRemove($event)"
           ></p-fileUpload>
         </div>
       </div>

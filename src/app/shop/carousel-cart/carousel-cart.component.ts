@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Stuff } from 'src/app/panel';
 
 @Component({
   selector: 'app-carousel-cart',
@@ -12,7 +13,62 @@ export class CarouselCartComponent implements OnInit {
   @Input() autoplayInterval = 0;
   @Input() headerTitle = '';
 
-  products: Product[] = [];
+  @Input() products: Stuff[] = [
+    {
+      category: '1',
+      stuffName: 'موبایل',
+      code: '1',
+      price: 5000,
+      quantity: 15,
+      rating: 3,
+      inventoryStatus: 'موجود',
+    },
+    {
+      category: '2',
+      stuffName: 'لپ تاپ',
+      code: '2',
+      price: 3000,
+      quantity: 10,
+      rating: 2,
+      inventoryStatus: 'ناموجود',
+    },
+    {
+      category: '3',
+      stuffName: 'پاور بانک',
+      code: '3',
+      price: 500,
+      quantity: 300,
+      rating: 4,
+      inventoryStatus: 'موجود',
+    },
+    {
+      category: '4',
+      stuffName: 'hello4',
+      code: '4',
+      price: 4444,
+      quantity: 4444,
+      rating: 4444,
+      inventoryStatus: 'hello4',
+    },
+    {
+      category: '5',
+      stuffName: 'hello5',
+      code: '5',
+      price: 5555,
+      quantity: 5555,
+      rating: 5555,
+      inventoryStatus: 'hello5',
+    },
+    {
+      category: '6',
+      stuffName: 'hello6',
+      code: '6',
+      price: 6666,
+      quantity: 6666,
+      rating: 6666,
+      inventoryStatus: 'hello6',
+    },
+  ];
 
   responsiveOptions: any;
 
@@ -36,76 +92,5 @@ export class CarouselCartComponent implements OnInit {
         numScroll: 1,
       },
     ];
-
-    this.products = [
-      {
-        category: '1',
-        name: 'موبایل',
-        code: '1',
-        price: 5000,
-        quantity: 15,
-        rating: 3,
-        inventoryStatus: 'موجود',
-      },
-      {
-        category: '2',
-        name: 'لپ تاپ',
-        code: '2',
-        price: 3000,
-        quantity: 10,
-        rating: 2,
-        inventoryStatus: 'ناموجود',
-      },
-      {
-        category: '3',
-        name: 'پاور بانک',
-        code: '3',
-        price: 500,
-        quantity: 300,
-        rating: 4,
-        inventoryStatus: 'موجود',
-      },
-      {
-        category: '4',
-        name: 'hello4',
-        code: '4',
-        price: 4444,
-        quantity: 4444,
-        rating: 4444,
-        inventoryStatus: 'hello4',
-      },
-      {
-        category: '5',
-        name: 'hello5',
-        code: '5',
-        price: 5555,
-        quantity: 5555,
-        rating: 5555,
-        inventoryStatus: 'hello5',
-      },
-      {
-        category: '6',
-        name: 'hello6',
-        code: '6',
-        price: 6666,
-        quantity: 6666,
-        rating: 6666,
-        inventoryStatus: 'hello6',
-      },
-    ];
   }
-}
-
-export interface Product {
-  id?: string;
-  code?: string;
-  name?: string;
-  description?: string;
-  price?: number;
-  quantity?: number;
-  inventoryStatus?: string;
-  category?: string;
-  image?: string;
-  rating?: number;
-  url?: string;
 }

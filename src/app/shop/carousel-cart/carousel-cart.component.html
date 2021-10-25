@@ -12,17 +12,18 @@
   </ng-template>
   <ng-template let-product pTemplate="item">
     <div class="product-item">
-      <img src="assets/images/mobile.png" alt="..." />
+      <img
+        [src]="product.stuffPic ? product.stuffPic : 'assets/images/mobile.png'"
+        alt="..."
+        style="width: 400px; height: 500px"
+      />
       <div class="">
-        <h4 class="p-mb-1">{{ product.name }}</h4>
-        <h6 class="p-mt-0 p-mb-3">${{ product.price }}</h6>
+        <h4 class="p-mb-1">{{ product.stuffName }}</h4>
+        <span class="p-mt-0 p-mb-3">{{ product.price }}تومان</span>
       </div>
-      <span
-        [class]="
-          'product-badge status-' + product.inventoryStatus.toLowerCase()
-        "
-        >{{ product.inventoryStatus }}</span
-      >
+      <span>{{
+        product.quantity ? product.quantity + "موجود" : "ناموجود"
+      }}</span>
       <div class="car-buttons p-mt-5">
         <p-button
           type="button"

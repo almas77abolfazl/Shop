@@ -11,7 +11,16 @@
       <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
           <td *ngFor="let col of columns">
-            {{ rowData[col.field] }}
+            <ng-container *ngIf="col.field === 'stuffPic'; else elseTemplate">
+              <img
+                [src]="rowData[col.field] ? rowData[col.field] : null"
+                alt="..."
+                style="width: 80px"
+              />
+            </ng-container>
+            <ng-template #elseTemplate>
+              {{ rowData[col.field] }}
+            </ng-template>
           </td>
         </tr>
       </ng-template>

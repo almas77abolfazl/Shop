@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { MegaMenuItem } from 'primeng/api';
 
 @Component({
@@ -9,9 +10,9 @@ import { MegaMenuItem } from 'primeng/api';
 export class ShopLayoutComponent implements OnInit {
   items: MegaMenuItem[] = [];
 
+  newStuffs: any[] = [];
 
-
-  constructor() {}
+  constructor(private dbService: NgxIndexedDBService) {}
 
   ngOnInit() {
     this.items = [
@@ -131,7 +132,12 @@ export class ShopLayoutComponent implements OnInit {
       },
     ];
 
+    this.setNewStuffs();
+  }
 
+  setNewStuffs() {
+    this.dbService.getAll('stuff').subscribe((stuff: any[]) => {
+      this.newStuffs = stuff;
+    });
   }
 }
-

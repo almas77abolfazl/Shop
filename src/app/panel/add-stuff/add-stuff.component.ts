@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { MessageService } from 'primeng/api';
+import { Stuff } from '../index';
 
 @Component({
   selector: 'app-add-stuff',
@@ -18,44 +19,74 @@ export class AddStuffComponent implements OnInit {
   ngOnInit() {}
 
   doSave() {
-    if (
-      this.entity.description &&
-      this.entity.inventory &&
-      this.entity.stuffName
-    ) {
+    if (!this.canSave()) {
+      return;
+    } else
       this.dbService.add('stuff', {
         stuffName: this.entity.stuffName,
-        inventory: this.entity.inventory,
+        quantity: this.entity.quantity,
         description: this.entity.description,
+        stuffPic: this.entity.stuffPic,
+        price: this.entity.price,
       });
-      this.messageService.add({
-        severity: 'success',
-        summary: 'success',
-        detail: 'با موفقیت ذخیره شد !',
-      });
-    } else if (!this.entity.stuffName) {
+    this.messageService.add({
+      severity: 'success',
+      summary: 'success',
+      detail: 'با موفقیت ذخیره شد !',
+    });
+  }
+
+  canSave() {
+    if (!this.entity.stuffName) {
       this.messageService.add({
         severity: 'error',
         summary: 'Error',
         detail: 'عنوان کالا ضروری است !',
       });
-    } else if (!this.entity.inventory) {
+      return false;
+    } else if (!this.entity.quantity) {
       this.messageService.add({
         severity: 'error',
         summary: 'Error',
         detail: 'موجودی ضروری است !',
       });
+      return false;
     } else if (!this.entity.description) {
       this.messageService.add({
         severity: 'error',
         summary: 'Error',
         detail: 'توضیحات ضروری است !',
       });
+      return false;
+    } else if (!this.entity.stuffPic) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'لطفا یک عکس برای کالا انتخاب کنید !',
+      });
+      return false;
+    } else if (!this.entity.price) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'لطفا قیمت کالا را وارد کنید !',
+      });
+      return false;
+    }
+    return true;
+  }
+
+  onSelect(event: any) {
+    let fileReader = new FileReader();
+    for (let file of event.files) {
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        this.entity.stuffPic = fileReader.result;
+      };
     }
   }
-}
-export interface Stuff {
-  stuffName?: string;
-  inventory?: number;
-  description?: string;
+
+  onRemove(event: any) {
+    this.entity.stuffPic = null;
+  }
 }
